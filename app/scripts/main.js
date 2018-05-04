@@ -13,4 +13,13 @@
         }
     })
 
+  //sidebar
+  $('.ui.sidebar')
+    .sidebar('setting', 'dimPage', false)
+    .sidebar('attach events', ' .menu-icon')
+    .sidebar('attach events', ' .close-icon')
+
+  $('.ui.navbar .menu')
+    .clone()
+    .appendTo('.ui.sidebar')
 })();
