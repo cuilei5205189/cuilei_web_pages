@@ -22,4 +22,24 @@
   $('.ui.navbar .menu')
     .clone()
     .appendTo('.ui.sidebar')
+
+  //slick carousel
+  $('.ui.hero.carousel')
+    .slick({
+      autoplay: true,
+      autoplaySpeed: 2500,
+      arrows: true,
+      prevArrow : '<button class="ui prev button bottom"><i class="material-icons">chevron_left</i></button>',
+      nextArrow : '<button class="ui next button bottom"><i class="material-icons">chevron_right</i></button>',
+
+      responsive: [
+        {
+          breakpoint: 767,
+          settings: {
+            dots: true
+          }
+        }
+      ]
+    });
 })();
+
