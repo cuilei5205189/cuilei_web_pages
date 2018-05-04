@@ -1,0 +1,57 @@
+.ui.navbar {
+    background: #fff;
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        position: relative;
+        overflow: hidden;
+    }
+    .header {
+        align-self: center;
+        transition: all .5s;
+    }
+    .header > img {
+        padding: 8px;
+        width: 98px;
+        box-sizing: content-box;
+    }
+
+    .menu {
+        margin-left: 56px;
+        transition: all .5s;
+        .item {
+            display: inline-block;
+            font-size: 18px;
+            color: #000;
+            margin-left: 24px;
+            margin-right: 24px;
+            padding-bottom: 32px;
+            padding-top: 24px;
+        }
+        .active {
+            border-bottom: 2px solid #000;
+        }
+    }
+        .search-icon {
+            flex-grow: 1;
+            text-align: right;
+            align-self: center;
+            cursor: pointer;
+        }
+    .search-form {
+        position: absolute;
+        transform: translateY(-120px);
+        transition: all .5s;
+        opacity: 0;
+    }
+    .searching ~ .search-form {
+        transform: translateY(-50px);
+        opacity: 1;
+    }
+    .searching .header, & .searching .menu {
+        transform: translateY(80px)
+    }
+
+}
