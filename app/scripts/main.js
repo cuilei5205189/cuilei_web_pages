@@ -40,29 +40,46 @@
 			}]
 		});
 
-  $('.ui.vertical.story .ui.carousel.for')
-    .slick({
-      asNavFor: '.ui.vertical.story .ui.carousel.nav',
-      arrows: false,
-      slidesToShow: 1,
-    })
+	$('.ui.vertical.story .ui.carousel.for')
+		.slick({
+			asNavFor: '.ui.vertical.story .ui.carousel.nav',
+			arrows: false,
+			slidesToShow: 1,
+		})
 
-  $('.ui.vertical.story .ui.carousel.nav')
-    .slick({
-      asNavFor: '.ui.vertical.story .ui.carousel.for',
-      slidesToShow: 3,
-      dots: true,
-      prevArrow: '<button class="ui prev button"><i class="material-icons">chevron_left</i></button>',
-      nextArrow: '<button class="ui next button"><i class="material-icons">chevron_right</i></button>',
-      centerMode: true,
-      responsive: [
-        {
-          breakpoint: 767,
-          settings: {
-            slidesToShow: 1
-          }
-        }
-      ],
-    })
+	$('.ui.vertical.story .ui.carousel.nav')
+		.slick({
+			asNavFor: '.ui.vertical.story .ui.carousel.for',
+			slidesToShow: 3,
+			dots: true,
+			prevArrow: '<button class="ui prev button"><i class="material-icons">chevron_left</i></button>',
+			nextArrow: '<button class="ui next button"><i class="material-icons">chevron_right</i></button>',
+			centerMode: true,
+			responsive: [{
+				breakpoint: 767,
+				settings: {
+					slidesToShow: 1
+				}
+			}],
+		})
+
+	// bottom
+	enquire.register("screen and (max-width: 767px)", {
+		match: function () {
+			$('.ui.bottom')
+				.addClass('accordion')
+				.accordion({
+					selector: {
+						title: '.header',
+						trigger: '.header',
+						content: '.content'
+					}
+				})
+		},
+		unmatch: function () {
+			$('.ui.bottom')
+				.removeClass('accordion')
+		},
+	});
 
 })();
