@@ -1,31 +1,27 @@
 .ui.sidebar {
-    background-color: #fff;
-    .menu {
-        display: flex;
-        flex-direction: column;
-        text-align: right;
-        .item {
-            padding: 16px;
-            padding-right: 24px;
-            font-size: 18px;
-            color: #000;
-
-            &.active {
-                background-color: #f8f8f8;
-            }
-
-            &:hover {
-                background-color: #fbfbfb;
-            }
-        }
-    }
-    .close-icon {
-        height: 50px;
-        padding: 8px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-    }
-
-
+	background-color: #fff;
+	.menu {
+		display: flex;
+		flex-direction: column;
+		text-align: right;
+		.item {
+			padding: 16px;
+			padding-right: 24px;
+			font-size: 18px;
+			color: #000;
+			&.active {
+				background-color: #f8f8f8;
+			}
+			&:hover {
+				background-color: #fbfbfb;
+			}
+		}
+	}
+	.close-icon {
+		height: 50px;
+		padding: 8px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+	}
 }
