@@ -82,4 +82,18 @@
 		},
 	});
 
+	//hero
+	$('.ui.hero video.image')
+		.visibility({
+			once: false,
+			continuous: true,
+			onPassing: function (calculations) {
+				if (calculations.percentagePassed >= 0.3) {
+					$(this).get(0).pause()
+				} else {
+					$(this).get(0).play()
+				}
+			}
+		})
+
 })();
