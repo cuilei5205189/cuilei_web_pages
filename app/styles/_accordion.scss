@@ -1,4 +1,4 @@
-.ui.accordion {
+.accordion {
 	.header {
 		cursor: pointer;
 	}
@@ -8,6 +8,14 @@
 			display: block;
 		}
 	}
+
+	.menu {
+		display: none;
+			&.active {
+				display: block;
+			}
+		}
+
 	.block {
 		border-bottom: 1px solid #ededed;
 	}

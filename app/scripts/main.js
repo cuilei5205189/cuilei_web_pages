@@ -2,13 +2,15 @@
 	'use strict';
 	// Your custom JavaScript goes here
 	//ScrollReveal
-	window.sr = ScrollReveal({ reset: true })
+	window.sr = ScrollReveal({
+		reset: true
+	})
 	sr.reveal('.ui.block.story .content')
 	sr.reveal('.ui.spec .statistic', 100)
 	sr.reveal('.ui.spec .statistic', 100)
 	sr.reveal('.ui.action .header', 100)
 	sr.reveal('.ui.action .action', 100)
-	
+
 	// navbar
 	$('.ui.navbar .search-icon > i')
 		.click(function () {
@@ -20,13 +22,54 @@
 			}
 		})
 
+	$('.ui.sub.navbar')
+		.visibility({
+			type: 'fixed'
+		})
+
+	$('.ui.sub.navbar .menu .item')
+		.click(function () {
+			let id = $(this).attr('href')
+			let element = $(id)
+			let position = element.offset().top - 75
+			console.log(position);
+
+			$('html, body')
+				.animate({
+					scrollTop: position
+				}, 500)
+		})
+
+	$('.ui.section')
+		.visibility({
+			observeChanges: false,
+			once: false,
+			offset: 120,
+			onTopPassed: sectionHandle,
+			onBottomPassedReverse: sectionHandle,
+		})
+
+	function sectionHandle() {
+		let $currentSection = $(this)
+		let index = $('.ui.section').index($currentSection)
+		let $subNavMenuItem = $('.ui.sub.navbar .menu > .item')
+		let $subNavMenuActiveItem = $subNavMenuItem.eq(index)
+
+		$subNavMenuItem
+			.filter('.active')
+			.removeClass('active')
+
+		$subNavMenuActiveItem
+			.addClass('active')
+	}
+
 	//sidebar
 	$('.ui.sidebar')
 		.sidebar('setting', 'dimPage', false)
 		.sidebar('attach events', ' .menu-icon')
 		.sidebar('attach events', ' .close-icon')
 
-	$('.ui.navbar .menu')
+	$('#navigation .menu')
 		.clone()
 		.appendTo('.ui.sidebar')
 
@@ -125,9 +168,22 @@
 						content: '.content'
 					}
 				})
+
+			$('.ui.sub.navbar .content')
+				.addClass('accordion')
+				.accordion({
+					selector: {
+						title: '.header',
+						trigger: '.header',
+						content: '.menu'
+					}
+				})
 		},
 		unmatch: function () {
 			$('.ui.bottom')
+				.removeClass('accordion')
+
+			$('.ui.sub.navbar .content')
 				.removeClass('accordion')
 		},
 	});
