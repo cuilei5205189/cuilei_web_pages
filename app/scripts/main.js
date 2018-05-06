@@ -1,7 +1,14 @@
 (function () {
 	'use strict';
 	// Your custom JavaScript goes here
-
+	//ScrollReveal
+	window.sr = ScrollReveal({ reset: true })
+	sr.reveal('.ui.block.story .content')
+	sr.reveal('.ui.spec .statistic', 100)
+	sr.reveal('.ui.spec .statistic', 100)
+	sr.reveal('.ui.action .header', 100)
+	sr.reveal('.ui.action .action', 100)
+	
 	// navbar
 	$('.ui.navbar .search-icon > i')
 		.click(function () {
